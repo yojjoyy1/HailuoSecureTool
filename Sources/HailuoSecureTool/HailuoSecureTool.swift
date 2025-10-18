@@ -8,7 +8,9 @@ public struct HailuoTestArea{
         testAPI()
     }
     private func testAPI(){
+        print("testAPI")
         let manager = AFHTTPSessionManager()
+        manager.responseSerializer.acceptableContentTypes?.insert("application/xhtml+xml")
         manager.get("https://www.google.com", parameters: nil, headers: nil, progress: nil) { _, response in
             print("Response: \(response ?? "")")
         } failure: { _, error in
