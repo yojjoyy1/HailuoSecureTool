@@ -10,12 +10,17 @@ let package = Package(
         .library(
             name: "HailuoSecureTool",
             targets: ["HailuoSecureTool"]),
+    ], dependencies: [
+        .package(url: "https://github.com/AFNetworking/AFNetworking.git", from: "4.0.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "HailuoSecureTool"),
+            name: "HailuoSecureTool",
+            dependencies: [
+                .product(name: "AFNetworking", package: "AFNetworking")
+            ]),
         .testTarget(
             name: "HailuoSecureToolTests",
             dependencies: ["HailuoSecureTool"]
